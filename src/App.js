@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import Picture from "./Picture"
 
+
+
 class App extends React.Component {
 
   constructor(props){
@@ -33,6 +35,7 @@ class App extends React.Component {
     let title = this.state.response.title
     let date = this.state.response.date
     let explanation = this.state.response.explanation
+
     
     return (
       <div className="App">
@@ -40,9 +43,14 @@ class App extends React.Component {
       <h2>{title}</h2>
       {date}
       <Picture url={url}/>
-      <h3>Explanation:</h3>
-      {explanation}
+      <main>
+        <h3>explanation</h3>
+        {explanation}
+      </main>
       </div>
+      
+
+
     );
   } 
 }
