@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<div
+  className="App"
+>
+  <h1>
+    NASA Astronomy Picture of The Day
+  </h1>
+  <h2 />
+  <div
+    className="Picture"
+  >
+    <img
+      alt="APOD"
+    />
+  </div>
+  <h3>
+    Explanation:
+  </h3>
+</div>
+`;

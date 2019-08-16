@@ -1,26 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Picture from "./Picture"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  constructor(props){
+    super(props)
+    this.state={
+      response: ''
+    }
+  }
+
+  componentDidMount(){
+    console.log("ComponentDidMount method ran")
+    fetch("https://api.nasa.gov/planetary/apod?api_key=BXfKXD2hz4UoEc7Ca6JkoM7TjFgZE06ay1pC3D5l")
+    .then(response =>  {
+      return response.json();
+    })
+    .then(myJson =>  {
+      console.log("JSON response: ")
+      console.log(myJson);
+      this.setState({response: myJson})
+    });
+  }
+
+  render(){
+    console.log("render method ran")
+    console.log("this.state.response: ")
+    console.log(this.state.response)
+
+    let url = this.state.response.url
+    let title = this.state.response.title
+    let date = this.state.response.date
+    let explanation = this.state.response.explanation
+    
+    return (
+      <div className="App">
+      <h1>NASA Astronomy Picture of The Day</h1>
+      <h2>{title}</h2>
+      {date}
+      <Picture url={url}/>
+      <h3>Explanation:</h3>
+      {explanation}
+      </div>
+    );
+  } 
 }
 
 export default App;
