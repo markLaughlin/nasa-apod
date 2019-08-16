@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
 import Picture from "./Picture"
-
-
+import Explanation from "./Explanation"
 
 class App extends React.Component {
 
@@ -43,10 +42,7 @@ class App extends React.Component {
       <h2>{title}</h2>
       {date}
       <Picture url={url}/>
-      <main>
-        <h3>explanation</h3>
-        {explanation}
-      </main>
+      <Explanation explanation={explanation}/>
       </div>
       
 
